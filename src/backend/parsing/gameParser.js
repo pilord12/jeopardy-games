@@ -7,6 +7,11 @@ const TITLE_STRING_REGEX = /Show #(\d+) - (.*)/;
 const BASE_CONTENT = 'div#content';
 const TITLE_HEADER = BASE_CONTENT + ' > div#game_title > h1';
 
+/**
+ * Parses an HTML page for a single game into date, game number, questions/answers, etc.
+ * @param gameHtml the HTML content of the entire page
+ * @return an object with relevant game information
+ */
 export const parseGame = (gameHtml) => {
   const $ = cheerio.load(gameHtml);
   const titleString = $(TITLE_HEADER).text();
